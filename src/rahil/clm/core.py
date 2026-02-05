@@ -1,7 +1,7 @@
-import sys
 from __future__ import annotations
 
 import os
+import sys
 from os import path
 from dataclasses import dataclass
 from typing import Dict, Tuple, List, Optional
