@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rahil-clm"
+version = "0.1.0"
+description = "Generate LHS samples and CLM crop PFT NetCDF parameter files for yield optimization."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Mohammad Uzair Rahil" }]
+dependencies = [
+  "numpy>=1.23",
+  "pandas>=1.5",
+  "xarray>=2023.1",
+  "netcdf4>=1.6",
+  "requests>=2.31"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rahil"]
