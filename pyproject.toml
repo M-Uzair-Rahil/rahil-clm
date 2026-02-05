@@ -11,12 +11,14 @@ requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [{ name = "Mohammad Uzair Rahil" }]
 dependencies = [
-  "numpy>=1.23",
+  "numpy<2",
   "pandas>=1.5",
   "xarray>=2023.1",
   "netcdf4>=1.6",
-  "requests>=2.31"
+  "requests>=2.31",
+  "openpyxl>=3.1"
 ]
+
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/rahil"]
