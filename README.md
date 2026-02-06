@@ -4,12 +4,9 @@
 
 # rahil-clm
 
-`rahil-clm` is a Python package to generate Latin Hypercube Sampling (LHS)–based
-crop parameter ensembles for **CLM/CTSM crop yield optimization**.
+**rahil-clm** is a lightweight Python package for generating **Latin Hypercube Sampling (LHS) ensembles** of crop parameters for the **Community Land Model (CLM / CTSM)** and for **diagnosing the sampled parameter distributions** against prescribed bounds.
 
-The package is designed so users **do not need to provide any input file paths**.
-Required input files (Excel parameter bounds and base CLM NetCDF parameters) are
-automatically downloaded from GitHub Releases and cached locally on first use.
+The package is designed so users can simply install it, import `rahil`, and generate ready-to-run CLM parameter NetCDF files **without manually handling input files or paths**.
 
 ---
 
@@ -17,11 +14,9 @@ automatically downloaded from GitHub Releases and cached locally on first use.
 
 ```bash
 pip install rahil-clm
-
-
-
-## Quick start
-
+Quick start
+python
+Copy code
 import rahil
 
 out = rahil.generate_lhs(
@@ -36,14 +31,92 @@ print(out.param_list_file)
 print(out.psets_df.head())
 
 
+# What this does
+Running generate_lhs() will automatically:
 
+Generate Latin Hypercube samples for crop parameters
+(rainfed corn, soybean, and spring wheat)
+
+Write per-case CLM NetCDF parameter files
+
+Create workflow text files for running CTSM/CLM ensembles
+
+Automatically fetch required base files from GitHub releases
+
+No manual input file paths are required.
+
+# Output structure
+After running the example above, your directory will look like:
+
+Copy code
+outputs/
+├── paramfile/
+│   └── pe_crops/
+│       ├── pe_crops_0_0000.nc
+│       ├── pe_crops_0_0001.nc
+│       └── ...
+├── workflow/
+│   ├── pe_crops_0.main_run.txt
+│   └── pe_crops_0.param_list.txt
+
+
+# Key outputs
+paramfile/pe_crops/*.nc
+CLM-compatible NetCDF parameter files (one per ensemble member)
+
+workflow/*.param_list.txt
+Table of all sampled parameters (used for diagnostics and plotting)
+
+workflow/*.main_run.txt
+Case IDs for batch CTSM/CLM execution
+
+Checking sampled parameter distributions
+You can quickly verify that sampled parameters lie within prescribed bounds using:
+
+python
+Copy code
+rahil.check_distribution(
+    output_dir="outputs",
+    show=False
+)
 This will:
 
-generate LHS samples for crop parameters
-write per-case CLM NetCDF parameter files
-create workflow text files for running CTSM/CLM ensembles
+Read the sampled parameter list from outputs/workflow/
 
+Load parameter bounds automatically from the package release
 
+Generate article-style distribution plots (one figure per crop)
 
+Save figures to:
+
+bash
+Copy code
+outputs/figs_distributions_by_crop/
+├── LHS_distributions_corn.png
+├── LHS_distributions_soybean.png
+└── LHS_distributions_wheat.png
+Each figure shows:
+
+Histograms of sampled values
+
+Dashed red lines indicating minimum and maximum bounds
+
+Separate panels for each parameter
+
+Example: generate + diagnose in one script
+python
+Copy code
+import rahil
+
+out = rahil.generate_lhs(
+    Ninit=50,
+    seed=10,
+    output_dir="outputs_test"
+)
+
+rahil.check_distribution(
+    output_dir="outputs_test",
+    show=False
+)
 
 
