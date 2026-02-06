@@ -14,9 +14,11 @@ The package is designed so users can simply install it, import `rahil`, and gene
 
 ```bash
 pip install rahil-clm
-Quick start
-python
-Copy code
+
+
+
+## Quick start
+
 import rahil
 
 out = rahil.generate_lhs(
@@ -31,24 +33,23 @@ print(out.param_list_file)
 print(out.psets_df.head())
 
 
-# What this does
+## What this does
 Running generate_lhs() will automatically:
 
-Generate Latin Hypercube samples for crop parameters
+1. Generate Latin Hypercube samples for crop parameters
 (rainfed corn, soybean, and spring wheat)
 
-Write per-case CLM NetCDF parameter files
+2. Write per-case CLM NetCDF parameter files
 
-Create workflow text files for running CTSM/CLM ensembles
+3. Create workflow text files for running CTSM/CLM ensembles
 
-Automatically fetch required base files from GitHub releases
+4. Automatically fetch required base files from GitHub releases
 
-No manual input file paths are required.
+5. No manual input file paths are required.
 
-# Output structure
+## Output structure
 After running the example above, your directory will look like:
 
-Copy code
 outputs/
 ├── paramfile/
 │   └── pe_crops/
@@ -60,34 +61,30 @@ outputs/
 │   └── pe_crops_0.param_list.txt
 
 
-# Key outputs
-paramfile/pe_crops/*.nc
+## Key outputs
+1. paramfile/pe_crops/*.nc
 CLM-compatible NetCDF parameter files (one per ensemble member)
 
-workflow/*.param_list.txt
+2. workflow/*.param_list.txt
 Table of all sampled parameters (used for diagnostics and plotting)
 
-workflow/*.main_run.txt
+3. workflow/*.main_run.txt
 Case IDs for batch CTSM/CLM execution
 
-Checking sampled parameter distributions
+### Checking sampled parameter distributions
 You can quickly verify that sampled parameters lie within prescribed bounds using:
 
-python
-Copy code
 rahil.check_distribution(
     output_dir="outputs",
     show=False
 )
+
 This will:
 
-Read the sampled parameter list from outputs/workflow/
-
-Load parameter bounds automatically from the package release
-
-Generate article-style distribution plots (one figure per crop)
-
-Save figures to:
+1. Read the sampled parameter list from outputs/workflow/
+2. Load parameter bounds automatically from the package release
+3. Generate article-style distribution plots (one figure per crop)
+4. Save figures to:
 
 bash
 Copy code
@@ -96,16 +93,12 @@ outputs/figs_distributions_by_crop/
 ├── LHS_distributions_soybean.png
 └── LHS_distributions_wheat.png
 Each figure shows:
-
 Histograms of sampled values
-
 Dashed red lines indicating minimum and maximum bounds
-
 Separate panels for each parameter
 
-Example: generate + diagnose in one script
-python
-Copy code
+### Example: generate + diagnose in one script
+
 import rahil
 
 out = rahil.generate_lhs(
