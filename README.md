@@ -1,8 +1,13 @@
-# Author: Mohammad Uzair Rahil
-# Michigan State University (MSU)
-# Date: 01/01/2026
+#### Author: Mohammad Uzair Rahil
+#### Michigan State University (MSU)
+#### Date: 01/01/2026
 
-# rahil-clm
+## Citation
+If you use rahil-clm in your research, please cite:
+Rahil, M. U. (2026). rahil-clm: Python package for CLM5 parameter sampling. 
+Zenodo. https://doi.org/10.5281/zenodo.18944426
+
+#### rahil-clm
 
 **rahil-clm** is a lightweight Python package for generating **Latin Hypercube Sampling (LHS) ensembles** of crop parameters for the **Community Land Model (CLM / CTSM)** and for **diagnosing the sampled parameter distributions** against prescribed bounds.
 
@@ -10,7 +15,7 @@ The package is designed so users can simply install it, import `rahil`, and gene
 
 ---
 
-## Installation
+##### Installation
 
 ```bash
 pip install rahil-clm
