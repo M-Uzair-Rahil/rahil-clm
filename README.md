@@ -7,7 +7,6 @@ If you use rahil-clm in your research, please cite:
 Rahil, M. U. (2026). rahil-clm: Python package for CLM5 parameter sampling. 
 Zenodo. https://doi.org/10.5281/zenodo.18944426
 
-#### rahil-clm
 
 **rahil-clm** is a lightweight Python package for generating **Latin Hypercube Sampling (LHS) ensembles** of crop parameters for the **Community Land Model (CLM / CTSM)** and for **diagnosing the sampled parameter distributions** against prescribed bounds.
 
