@@ -8,9 +8,9 @@ Rahil, M. U. (2026). rahil-clm: Python package for CLM5 parameter sampling.
 Zenodo. https://doi.org/10.5281/zenodo.18944426
 
 
-**Rahil MSU CLM CROP (RMCC)** is a lightweight Python package for generating **Latin Hypercube Sampling (LHS) ensembles** of crop parameters for the **Community Land Model (CLM / CTSM)** and for **diagnosing the sampled parameter distributions** against prescribed bounds.
+**Rahil MSU CLM CROP (RMCC)** is a lightweight Python package for generating Latin Hypercube Sampling (LHS) ensembles** of crop parameters for the Community Land Model (CLM / CTSM)** and for diagnosing the sampled parameter distributions** against prescribed bounds.
 
-The package is designed so users can simply install it, import `rahil`, and generate ready-to-run CLM parameter NetCDF files **without manually handling input files or paths**.
+The package is designed so users can simply install it, import `rahil`, and generate ready-to-run CLM parameter NetCDF files without manually handling input files or paths**.
 
 ---
 
