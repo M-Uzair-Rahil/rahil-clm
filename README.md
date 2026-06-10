@@ -3,12 +3,12 @@
 #### Date: 01/01/2026
 
 ## Citation
-If you use MCC in your research, please cite:
-Rahil, M. U. (2026). MSU-CLM-CROP (MCC): Python package for CLM5 parameter sampling. 
+If you use CCM in your research, please cite:
+Rahil, M. U. (2026). CLM-CROP-MSU (CCM): Python package for CLM5 parameter sampling and workflow generation. 
 Zenodo. https://doi.org/10.5281/zenodo.18944426
 
 
-**MSU CLM CROP (MCC)** is a lightweight Python package for generating Latin Hypercube Sampling (LHS) ensembles** of crop parameters for the Community Land Model (CLM / CTSM)** and for diagnosing the sampled parameter distributions** against prescribed bounds.
+** CLM-CROP-MSU (CCM)** is a lightweight Python package for generating Latin Hypercube Sampling (LHS) ensembles** of crop parameters for the Community Land Model (CLM / CTSM)** and for diagnosing the sampled parameter distributions** against prescribed bounds.
 
 The package is designed so users can simply install it, import `rahil`, and generate ready-to-run CLM parameter NetCDF files without manually handling input files or paths**.
 
